@@ -1,0 +1,16 @@
+  <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <h2 class="active">Create Circle</h2>
+          <form (submit) = "onSubmit2()">
+            <input type="text" id="login" class="fadeIn second" placeholder="Title" aria-describedby="titleHelp" name="newCirc.title" [(ngModel)]="newCirc.title">
+            <small id="titleHelp" class="form-text text-muted"><span class="errors" *ngIf = "error_title"><span *ngFor = "let titleE of error_title">{{titleE.errorMessage}} </span></span></small>
+
+            <input type="submit" class="fadeIn fourth" value="Create">
+          </form>
+      
+          <div id="formFooter">
+            <a class="underlineHover" [routerLink]="['/homepage']">Go back</a>
+          </div>
+      
+        </div>
+      </div>

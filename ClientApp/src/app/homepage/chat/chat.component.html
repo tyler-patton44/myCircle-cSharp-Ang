@@ -1,0 +1,28 @@
+<div class="main-content">
+    <h1>{{channelToShow.name}} <span class="userCount" *ngIf = 'circleUsers'><i class="fas fa-user"></i>({{circleUsers.length}})</span></h1>
+    <div class="scroller" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+        <div class="media text-muted pt-3" *ngFor = 'let mes of channelToShow.messages | orderBy: order'>
+            <img src="assets/images/randomUser.png" alt="" class="mr-2 rounded">
+            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <strong class="d-block text-gray-dark">@{{mes.user.username}} ({{mes.createdAt | date: 'short'}})</strong>
+                {{mes.content}} <img *ngIf = 'mes.image' src="{{mes.image}}"><br>
+                <span *ngIf = 'isLiked(mes.likes); else Liked'><a (click) = 'likeMessage(mes.messageId)'><i class="far fa-thumbs-up"></i>{{mes.likes.length}}</a></span>
+                <ng-template #Liked><i class="fas fa-thumbs-up"></i> {{mes.likes.length}}</ng-template>
+            </p>
+        </div>
+    </div>
+    <form (submit) = "onSubmit()">
+            <label for="file-input">
+                    <i id="two" class="fas fa-file-image" [ngStyle]="{'color':imageReady}"></i>
+                    <i class="fas fa-image" [ngStyle]="{'color':imageReady}"></i>
+            </label>
+            <input id="file-input" type="file" (change)="changeListener($event)"/>
+            <div class="form-group">
+                    <small id="messageHelp" class="form-text text-muted"><span class="errors" *ngIf = "error_image"><span *ngFor = "let imgE of error_image">{{imgE.errorMessage}} </span></span></small>
+                <small id="messageHelp" class="form-text text-muted"><span class="errors" *ngIf = "error_message"><span *ngFor = "let mesE of error_message">{{mesE.errorMessage}} </span></span></small>
+                <input class="form-control form-control-lg" type="text" placeholder="Message" aria-describedby="messageHelp" name="newMessage.content" [(ngModel)]="newMessage.content">
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+            
+        </form>
+</div>

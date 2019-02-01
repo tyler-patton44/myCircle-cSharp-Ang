@@ -1,0 +1,24 @@
+<div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+          <h2 class="inactive underlineHover" [routerLink]="['/']"> Sign In </h2>
+          <h2 class="active">Sign Up</h2>
+          <!-- Login Form -->
+          <form (submit) = "onSubmit()">
+            <input type="text" class="fadeIn first" name="login" placeholder="Username" aria-describedby="userHelp" name="newUser.username" [(ngModel)]="newUser.username">
+            <small id="userHelp" class="form-text text-muted"><span class="errors" *ngIf = "error_user"><span *ngFor = "let userE of error_user">{{userE.errorMessage}} </span></span></small>
+    
+            <input type="text" class="fadeIn second" name="login" placeholder="Email" aria-describedby="emailHelp" name="newUser.email" [(ngModel)]="newUser.email">
+            <small id="emailHelp" class="form-text text-muted"><span class="errors" *ngIf = "error_email"><span *ngFor = "let emailE of error_email">{{emailE.errorMessage}} </span></span></small>
+    
+            <input type="password" class="fadeIn third" placeholder="Password" aria-describedby="passwordHelp" name="newUser.password" [(ngModel)]="newUser.password">
+            <small id="passwordHelp" class="form-text text-muted"><span class="errors" *ngIf = "error_pass"><span *ngFor = "let passE of error_pass">{{passE.errorMessage}} </span></span></small>
+    
+            <input type="password" class="fadeIn third" placeholder="Confirm Password" aria-describedby="password2Help" name="newUser.confirm" [(ngModel)]="newUser.confirm">
+            <small id="password2Help" class="form-text text-muted"><span class="errors" *ngIf = "error_confirm"><span *ngFor = "let confirmE of error_confirm">{{confirmE.errorMessage}} </span></span></small>
+    
+            <input type="submit" class="fadeIn fourth" value="Log In">
+          </form>
+      
+        </div>
+      </div>

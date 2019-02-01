@@ -1,0 +1,16 @@
+  <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <h2 class="active">Create Channel</h2>
+          <form (submit) = "onSubmit2()">
+            <input type="text" id="login" class="fadeIn second" placeholder="Channel Name" aria-describedby="titleHelp" name="newChannel.name" [(ngModel)]="newChannel.name">
+            <small id="titleHelp" class="form-text text-muted"><span class="errors" *ngIf = "error_name"><span *ngFor = "let nameE of error_name">{{nameE.errorMessage}} </span></span></small>
+
+            <input type="submit" class="fadeIn fourth" value="Create">
+          </form>
+      
+          <div id="formFooter">
+            <a class="underlineHover" [routerLink]="['/homepage']">Go back</a>
+          </div>
+      
+        </div>
+      </div>

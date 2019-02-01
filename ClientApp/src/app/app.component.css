@@ -1,0 +1,28 @@
+nav{
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+nav h1, img{
+    display: inline-block;
+    color: white;
+}
+nav img{
+    width: 70px;
+    height: 70px;
+}
+nav h1{
+    font-size: 21pt;
+}
+@media screen and (max-height: 550px){
+    nav{
+        display: none;
+    }
+}
+@media screen and (min-height: 700px){
+    nav{
+        height: 8vh;
+    }
+}

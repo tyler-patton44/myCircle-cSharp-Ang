@@ -1,0 +1,24 @@
+
+      <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+          <h2 class="active"> Sign In </h2>
+          <h2 class="inactive underlineHover" [routerLink]="['/register']">Sign Up</h2>
+          <!-- Login Form -->
+          <form (submit) = "onSubmit2()">
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Email" aria-describedby="emailHelp" name="logUser.email" [(ngModel)]="logUser.email">
+            <small id="emailHelp" class="form-text text-muted"><span class="errors" *ngIf = "error_user"><span *ngFor = "let userE of error_user">{{userE.errorMessage}} </span></span></small>
+
+            <input type="password" id="password" class="fadeIn third" placeholder="Password" aria-describedby="passHelp" name="logUser.password" [(ngModel)]="logUser.password">
+            <small id="passHelp" class="form-text text-muted"><span class="errors" *ngIf = "error_pass"><span *ngFor = "let passE of error_pass">{{passE.errorMessage}} </span></span></small>
+
+            <input type="submit" class="fadeIn fourth" value="Log In">
+          </form>
+      
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+          </div>
+      
+        </div>
+      </div>

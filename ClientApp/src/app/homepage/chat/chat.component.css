@@ -1,0 +1,141 @@
+*{
+    font-family: 'Josefin Sans', sans-serif;
+}
+.main-content{
+    width: 100%;
+    height: 100%;
+}
+.main-content h1{
+    text-align: center;
+    padding: 5px;
+    background-color: rgba(86, 125, 173, 1);
+    color: white;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+}
+.main-content .userCount{
+    font-size: 12pt;
+    padding: 8px;
+    border: 2px solid white;
+    border-radius: 50px;
+    vertical-align: middle;
+}
+.scroller{
+    height: 85%;
+    overflow-y: scroll;
+}
+.media img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.d-block.text-gray-dark{
+    font-size: 12pt;
+    color: black;
+}
+.media.text-muted.pt-3{
+    width: 99%;
+    margin-left: 1%;
+}
+.media-body.pb-3.mb-0.small{
+    font-size: 12pt;
+}
+.media-body.pb-3.mb-0.small img{
+    display: block;
+    border-radius: 0;
+    width: 300px;
+    height: 300px;
+    
+}
+.media-body.pb-3.mb-0.small i{
+    font-size: 12pt;
+    margin-top: 5px;
+}
+.media-body.pb-3.mb-0.small a:hover{
+    cursor: pointer;
+}
+form{
+    display: block;
+    position: fixed;
+    width: 75%;
+    bottom: 0;
+}
+form label{
+    margin: 0;
+}
+form #file-input{
+    display: none;
+}
+form i{
+    position: absolute;
+    cursor: pointer;
+    font-size: 42pt;
+    left: 93%;
+    bottom: 30%;
+    color: rgba(47, 123, 246, 1);
+    margin: 0!important;
+}
+form #two{
+    display: none;
+}
+form i:hover{
+    color: rgba(107, 176, 55, 0.8);
+}
+form .form-group{
+    width: 93%;
+    margin: 0;
+}
+form .btn.btn-primary{
+    display: block;
+    width: 100%;
+}
+@media screen and (max-height: 750px){
+    .scroller{
+        height: 74%;
+    }
+}
+@media screen and (max-width: 1000px){
+    form{
+        width: 74.5%;
+    }
+    form i{
+        font-size: 38pt;
+        bottom: 33%;
+    }
+}
+@media screen and (max-width: 800px){
+    form{
+        width: 73.5%;
+    }
+    form i{
+        font-size: 35pt;
+        bottom: 33%;
+    }
+}
+@media screen and (max-width: 715px){
+    form{
+        width: 56%;
+    }
+    form .form-group{
+        width: 85%;
+        margin: 0;
+    }
+    form i{
+        font-size: 32pt;
+        bottom: 35%;
+        left: 87%;
+    }
+}
+@media screen and (max-width: 480px){
+    form{
+        width: 52%;
+    }
+    form i{
+        display: none;
+    }
+    form #two{
+        display: block;
+        font-size: 28pt;
+        left: 86%;
+        bottom: 38%;
+    }
+}

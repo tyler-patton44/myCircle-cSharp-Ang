@@ -1,0 +1,34 @@
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">USERNAME</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">ACTIONS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = 'let circ of circleUsers'>
+        <td>{{circ.user.username}}</td>
+        <td>{{circ.user.email}}</td>
+        <td>
+          <a class="btn btn-primary" (click) = 'activity(circ.user.userId)'>Activity</a>
+          <a class="btn btn-primary remove" (click) = 'removeUser(circ.user.userId)'>Remove</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a class="btn btn-primary" [routerLink]="['/users/invite/'+circId]">Invite Friend</a>
+  <a class="btn btn-primary" [routerLink]="['/homepage']" style="margin-top:10px;">Go Back</a>
+  <div class="activity" *ngIf = 'userMessages.length > 0'>
+    <h2>Activity</h2>
+    <div class="scroller">
+      <div class="media text-muted pt-3" *ngFor = 'let mes of userMessages | orderBy: order : true'>
+          <img src="assets/images/randomUser.png" alt="" class="mr-2 rounded">
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+              <strong class="d-block text-gray-dark">@{{mes.user.username}} ({{mes.createdAt | date: 'short'}})</strong>
+              {{mes.content}} <img *ngIf = 'mes.image' src="{{mes.image}}"><br>
+              <i class="fas fa-thumbs-up"></i> {{mes.likes.length}}
+          </p>
+      </div>
+    </div>
+  </div>

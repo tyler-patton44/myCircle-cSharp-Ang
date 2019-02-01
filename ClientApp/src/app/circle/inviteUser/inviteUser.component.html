@@ -1,0 +1,16 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <h2 class="active">Invite User</h2>
+      <form (submit) = "onSubmit()">
+        <input type="text" id="login" class="fadeIn second" placeholder="Email" aria-describedby="titleHelp" name="newInvite.email" [(ngModel)]="newInvite.email">
+        <small id="titleHelp" class="form-text text-muted"><span class="errors" *ngIf = "inviteError"><span *ngFor = "let inviteE of inviteError">{{inviteE.errorMessage}} </span></span></small>
+
+        <input type="submit" class="fadeIn fourth" value="Send">
+      </form>
+  
+      <div id="formFooter">
+        <a class="underlineHover" [routerLink]="['/users/circle'+circId]">Go back</a>
+      </div>
+  
+    </div>
+  </div>

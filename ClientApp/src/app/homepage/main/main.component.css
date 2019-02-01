@@ -1,0 +1,237 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.containment{
+    display: block;
+    width: 100%;
+    height: 90vh;
+}
+.main2{
+    display: inline-block;
+    vertical-align: top;
+    width: 25%;
+    height: 100%;
+    background-color: rgba(79, 120, 170, 0.8);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+
+}
+.groups{
+    display: inline-block;
+    vertical-align: top;
+    width: 25%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+}
+.groups p{
+    font-size: 25pt;
+}
+.groups .circLogo img{
+    display: inline-block;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    vertical-align: middle;
+}
+.groups .names{
+    display: none;
+    font-size: 18pt;
+}
+.groups:hover{
+    width: 90%;
+    height: 100%;
+}
+.groups:hover .names{
+    display: block;
+}
+.groups:hover ~ .channels{
+    display: none;
+}
+.channels{
+    display: inline-block;
+    vertical-align: top;
+    width: 75%;
+    height: 100%;
+    color: whitesmoke;
+    text-align: center;
+}
+.channels h3, h4{
+    width: 100%;
+    color: whitesmoke;
+    text-align: center;
+}
+.channels h3{
+    padding: 5px; 
+    background-color: rgba(86, 125, 173, 1); 
+    display: inline-block;
+}
+.channels h4{
+    font-size: 15pt; 
+    margin-top: 10px;
+}
+.channels .settings{
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgba(255,255,255,0.8);
+    color: rgba(0,0,0,0.9);
+}
+.channels .settings ul li{
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+.channels .settings ul li:hover{
+    background-color: rgba(255,255,255,0.8);
+}
+.channels ul{
+    display: block;
+    list-style-type: none;
+    font-size: 12pt;
+    text-align: center;
+    padding: 0;
+}
+.channels ul li{
+    list-style-type: none;
+    padding: 0;
+}
+.channels ul li:hover{
+    cursor: pointer;
+    background-color: rgba(86, 125, 173, 1);
+}
+.channels h3 i{
+    display:inline-block; 
+    font-size: 14pt; 
+    border-radius: 100%;
+    color: white;
+}
+.channels h3 i:hover{
+    background-color: rgba(107, 176, 55, 0.8);
+    cursor: pointer;
+}
+.alerts{
+    position: fixed;
+    width: 45%;
+    height: 90%;
+    background-color: rgba(79, 120, 170, 0.7);
+    top: 10%;
+    left: 25%;
+    z-index: 2;
+}
+.alerts .deleteBTN{
+    background-color: rgba(255, 0, 0, 1)!important;
+    margin-left: 5px;
+}
+.alerts .deleteBTN:hover{
+    background-color: rgba(255, 0, 0, 0.8)!important;
+}
+.add{
+    display: block;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    color: whitesmoke;
+}
+i.fa-2x{
+    font-size: 30pt!important;
+}
+.add:hover{
+    padding: 2px;
+    text-decoration: none;
+    border: 1px solid whitesmoke;
+    background-color: rgba(107, 176, 55, 0.8);
+}
+.logout:hover{
+    background-color: rgba(255, 0, 0, 0.9);
+}
+.main-content2{
+    display: inline-block;
+    width: 75%;
+    height: 90%;
+    vertical-align: top;
+    margin-left: 0;
+}
+.media.custom{
+    background-color: rgba(255,255,255,0.8);
+}
+.media.custom .joinBTN{
+    padding: 5px;
+    border-radius: 10%;
+    background-color: rgba(0, 123, 255, 1);
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+}
+.media.custom .joinBTN:hover{
+    cursor: pointer;
+    background-color: rgba(0, 123, 255, 0.8);
+}
+.media.custom img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+@media screen and (max-height: 550px){
+    .containment{
+        height: 100vh;
+    }
+    .alerts{
+        top: 0%;
+    }
+    .main-content2{
+        height: 80%;
+    }
+}
+@media screen and (min-height: 700px){
+    .containment{
+        height: 92vh;
+    }
+    .alerts{
+        top: 8%;
+    }
+}
+@media screen and (max-width: 950px){
+    .groups{
+        width: 30%;
+    }
+    .channels{
+        width: 70%;
+    }
+}
+@media screen and (max-width: 765px){
+    .groups{
+        width: 35%;
+    }
+    .channels{
+        width: 65%;
+    }
+}
+@media screen and (max-width: 715px){
+    .main2{
+        width: 44%
+    }
+    .main-content2{
+        width: 55%;
+    }
+    .groups{
+        width: 45%;
+    }
+    .channels{
+        width: 55%;
+    }
+}
+@media screen and (max-width: 480px){
+    .main2{
+        width: 48%
+    }
+    .main-content2{
+        width: 51%;
+    }
+    .channels h4{
+        font-size: 12pt;
+    }
+    .channels ul{
+        font-size: 11pt;
+    }
+}

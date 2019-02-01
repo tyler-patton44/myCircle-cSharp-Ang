@@ -1,0 +1,48 @@
+<div class="containment">
+    <div class="main2">
+        <div class="groups">
+            <a class="add"><i class="fas fa-user-circle fa-2x"></i><p class="names" *ngIf = 'currentUser'>{{currentUser.username}}</p></a>
+            <a class="add" (click) = "circleClicked()"><i class="fas fa-users fa-2x"></i><p class="names">Circles</p></a>
+            <a class="add" (click) = "alertClicked()"><i class="fas fa-bell fa-2x"></i><p class="names">Invites</p></a>
+            <a class="add" [routerLink]="['/create/circle']"><i class="fas fa-plus-circle fa-2x"></i><p class="names">Create Circle</p></a>
+            <a class="add logout" (click) = "logoutClick()"><i class="fas fa-sign-out-alt fa-2x"></i><p class="names">Logout</p></a>
+        </div>
+        <div class="alerts" *ngIf = 'showAlert'>
+            <p style="color:white; text-align:center; opacity:0.7;">(Click Invites again to close)</p>
+            <span *ngIf = 'currentUser.invites.length > 0'>
+                <div class="media text-muted pt-3 custom" *ngFor = 'let i of currentUser.invites'>
+                    <img src="assets/images/randomUser.png" alt="" class="mr-2 rounded">
+                    <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <strong class="d-block text-gray-dark">Circle Name: {{i.circle.title}}</strong>
+                    <a (click) = 'joinCircle(i.inviteId)' class="joinBTN">Join</a>
+                    </p>
+                </div>
+            </span>
+        </div>
+        <div class="alerts" *ngIf = 'showCircles'>
+            <p style="color:white; text-align:center; opacity:0.7;">(Click Circles again to close)</p>
+            <div class="media text-muted pt-3 custom" *ngFor = "let circs of circles">
+                <i class="fas fa-users fa-2x mr-2 rounded"></i>
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <strong class="d-block text-gray-dark">{{circs.circle.title}} <span *ngIf = 'circs.circle.userId === currentUser.userId'>(Creator)</span></strong>
+                <a (click) = "openCircle(circs.circle.circleId)" class="joinBTN">Open</a><a href="#" class="joinBTN deleteBTN">Delete</a>
+                </p>
+            </div>
+        </div>
+        <div *ngIf = 'currentCircle' class="channels">
+            <h3 *ngIf = "currentCircle">{{currentCircle.circle.title}} <i (click) = "settingsClicked()" class="fas fa-bars"></i></h3>
+            <div *ngIf = "showSettings" class="settings">
+                <ul *ngIf = 'currentUser.userId === currentCircle.circle.userId'>
+                    <li [routerLink]="['/create/channel/'+currentCircle.circle.circleId]">Add Channels</li>
+                    <li *ngFor = 'let c of currentCircle.circle.channels' (click) = 'deleteChannel(c.channelId)'>Delete {{c.name}}</li>
+                    <li [routerLink]="['/users/circle/'+currentCircle.circle.circleId]">Manage Members</li>
+                </ul>
+            </div>
+            <h4>Channels({{currentCircle.circle.channels.length}})</h4>
+            <ul *ngIf = 'currentCircle.circle.channels'>
+                <li *ngFor = 'let c of currentCircle.circle.channels' (click) = 'channelClicked(c.channelId)'>{{c.name}}</li>
+            </ul>
+        </div>
+    </div>
+    <app-chat class="main-content2" *ngIf="currentChannel" [channelToShow]='currentChannel' [curUser] = 'currentUser' [curCircle] = 'currentCircle' (onSubmission) = 'subbed()'></app-chat>
+</div>
