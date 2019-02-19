@@ -89,8 +89,13 @@ export class chatComponent implements OnInit {
   }
 
   changeListener($event) : void {
+    if($event.target.files[0].type.includes('image')){
     this.imageReady = "green";
     this.readThis($event.target);
+    }
+    else{
+      alert("Not a valid image");
+    }
   }
   
   readThis(inputValue: any): void {
